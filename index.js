@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
   // Build file path
   let filePath = path.join(
     __dirname,
-    'first_server',
+    'public',
     req.url === '/' ? 'index.html' : req.url
   );
 
@@ -75,7 +75,7 @@ const server = http.createServer((req, res) => {
       if (err.code === 'ENOENT') {
         // Page not Found
         fs.readFile(
-          path.join(__dirname, 'first_server', '404.html'),
+          path.join(__dirname, 'public', '404.html'),
           // eslint-disable-next-line no-shadow
           (err, content) => {
             res.writeHead(200, { 'Content-Type': 'text/html' });
